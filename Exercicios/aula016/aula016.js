@@ -1,10 +1,13 @@
 "use strict"
 
+const objs=document.getElementsByTagName("div")
+
 let num=[10,20,30,40,50]
 
-for(n in num){
-    console.log(num[n])
+for(let o of objs){
+    console.log(o.innerHTML="Curso bolado")
 }
-//for(let i=0; i < num.length; i++){
-//    console.log(num [i])
-//}
+
+for(let o in objs){
+    console.log(objs[o].innerHTML)
+}
