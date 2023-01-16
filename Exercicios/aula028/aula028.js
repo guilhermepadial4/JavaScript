@@ -1,15 +1,22 @@
 "use strict"
 
-const el=document.getElementsByTagName("div")
-el.map((e, i)=>{
-    console.log(e)
-})
-console.log(el)
+
+const converterInt=(e)=>parseInt(e)
+let num=['1','2','3','4','5'].map(converterInt)
+console.log(num)
+
+// const el=document.getElementsByTagName("div")
+// const val=Array.prototype.map.call(el,(innerHTML)=>innerHTML)
+// console.log(val)
 
 
-
-
-
+// let el=document.getElementsByTagName("div")
+// el=[...el]
+// console.log(el)
+// el.map((e, i)=>{
+//     e.innerHTML="CFBCursos"
+    
+// })
 
 
 // const cursos=['HTML','CSS','Javascript','PHP','React']
