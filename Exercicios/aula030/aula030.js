@@ -15,4 +15,4 @@ const arrayElement=[dc1,dc2,dc3,dc4,dc5,dc6]
 arrayElement.map((e)=>{
     console.log(e)
 })
-    
+   
