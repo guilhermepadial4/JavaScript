@@ -5,9 +5,11 @@ const cursos = ["HTML", "CSS", "Javascript", "PHP", "React", "MySQL", "ReactNati
 const btnCursoSelecionado = document.getElementById ('btnCursosSelecionados')
 const btnRemoveCurso = document.getElementById ('btnRemoverCurso')
 
-cursos.map((el, chave)=>{
+let indice = 0
+
+const criarNovoCurso = ((curso)=>{
     const novoElement = document.createElement ("div")
-    novoElement.setAttribute ('id', 'c' + chave)
+    novoElement.setAttribute ('id', 'c' + indice)
     novoElement.setAttribute ('class', 'curso c1')
     novoElement.innerHTML = el
 
@@ -22,6 +24,11 @@ cursos.map((el, chave)=>{
 
     novoElement.appendChild(comandos)
 
+    return novoElement
+})
+
+cursos.map((el, chave)=>{
+    criarNovoCurso
     caixaCursos.appendChild(novoElement)
 
 })
