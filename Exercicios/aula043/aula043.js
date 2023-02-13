@@ -37,14 +37,13 @@ const radioSelecionado = () =>{
 
 btnCursoSelecionado.addEventListener("click", (evt)=>{
     const rs = radioSelecionado()
-    if(rs!=undefined){
+    try{
         const cursoSelecionado = rs.parentNode.previousSibling.textContent
         alert("Curso Selecionado: " + cursoSelecionado)
-    }else{
+    }catch(ex){
         alert("Selecione um curso")
     }
-    
-    })
+})
 
     btnRemoveCurso.addEventListener("click", (evt)=>{
         const rs = radioSelecionado()
