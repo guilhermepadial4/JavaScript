@@ -10,23 +10,19 @@ const nomeCurso = document.getElementById ('nomeCurso')
 
 let indice = 0
 
+const tirarSelecao = ()=>{
+    const cursoSelecionado = document.querySelectorAll (".selecionado")
+    
+}
+
 const criarNovoCurso = (curso)=>{
     const novoElement = document.createElement ("div")
     novoElement.setAttribute ('id', 'c' + indice)
     novoElement.setAttribute ('class', 'curso c1')
     novoElement.innerHTML = curso
-
-    const comandos = document.createElement('div')
-    comandos.setAttribute('class', 'comandos')
-
-    const rb = document.createElement ('input')
-    rb.setAttribute('type', 'radio')
-    rb.setAttribute('name', 'rb_curso')
-
-    comandos.appendChild(rb)
-
-    novoElement.appendChild(comandos)
-
+    novoElement.addEventListener("click", (evt)=>{
+        evt.target.classList.toggle("selecionado")
+    })
     return novoElement
 }
 
