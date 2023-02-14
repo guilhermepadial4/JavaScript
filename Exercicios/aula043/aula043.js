@@ -7,6 +7,7 @@ const btnRemoveCurso = document.getElementById ('btnRemoverCurso')
 const btnAntes = document.getElementById ('btnAdicionarCursoAntes')
 const btnDepois = document.getElementById ('btnAdicionarCursoDepois')
 const nomeCurso = document.getElementById ('nomeCurso')
+
 let indice = 0
 
 const criarNovoCurso = (curso)=>{
