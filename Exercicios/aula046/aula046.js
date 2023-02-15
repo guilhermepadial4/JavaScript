@@ -14,7 +14,7 @@ btnVerificar.addEventListener ("click",(evt)=>{
         return e >= 18
     })
     if (retorno){
-        resultado.innerHTML = "Array esta em conformidade" + 
+        resultado.innerHTML = "Array esta em conformidade"
     }
     //console.log(retorno)
 })
