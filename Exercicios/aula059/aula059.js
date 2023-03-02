@@ -30,15 +30,24 @@ f_tipoNormal.addEventListener("click",(evt)=>{
 
 const exibicaoCarros=()=>{
     carros.innerHTML=""
-    a_carros.forEach((c)=>{
+    a_carros.map((c,i)=>{
         const div=document.createElement("div")
+        const btn=document.createElement("button")
+        btn.innerHTML="Remover"
+        btn.addEventListener("click",(evt)=>{
+            a_carros.splice(i,1);
+            exibicaoCarros()
+        })
         div.setAttribute("class","carro")
+        div.setAttribute("data-nome",c.nome)
         div.innerHTML=`Nome: ${c.nome}<br/>`
         div.innerHTML+=`Portas: ${c.portas}<br/>`
         div.innerHTML+=`Blindagem: ${c.blindagem}<br/>`
         div.innerHTML+=`Munição: ${c.municao}<br/>`
         div.innerHTML+=`Cor: ${c.cor}<br/>`
+        carros.appendChild(btn)
         carros.appendChild(div)
+        
     })
       
 }
