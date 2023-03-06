@@ -38,13 +38,27 @@ class Turbo{
 
 class carroEspecial extends Carro{
     constructor(estagioTurbo){
-        super(3,estagioTurbo)
+        super(4,estagioTurbo)
+        this.tipoInfo=0
+        this.velMax=300+this.turbo.pot
         this.nome="Carro especial para pessoas especiais"
+    }
+    info(){
+        if(this.tipoInfo==1){
+            super.info()
+        }else{
+            console.log(`Nome: ${this.nome}`)
+            console.log(`Velocidade Máxima: ${this.velMax}`)
+            console.log(`Turbo: ${this.turbo.pot}`)
+            console.log("-------------------")
+        }
     }
 }
 
 const c1=new Carro(1,0)
 const c2=new Carro(1,1)
+const c3=new carroEspecial(3)
 
 c1.info()
 c2.info()
+c3.info()
