@@ -1,9 +1,9 @@
 
+const display=document.querySelector(".display")
 const teclas_Num=[...document.querySelectorAll(".num")]
 const teclas_Op=[...document.querySelectorAll(".op")]
 const tecla_Res=document.querySelector(".res")
-const display=document.querySelector(".display")
-const tecla_On=document.querySelector("#ton")
+const tecla_Cpy=document.querySelector("#tcpy")
 const tecla_Limpar=document.querySelector("#tlimpar")
 const tecla_Igual=document.querySelector("#tigual")
 
@@ -58,4 +58,9 @@ tecla_Igual.addEventListener("click",()=>{
     decimal=false
     const res=eval(display.innerHTML)
     display.innerHTML=res
+})
+
+
+tecla_Cpy.addEventListener("click",(evt)=>{
+    navigator.clipboard.writeText(display.innerHTML)
 })
