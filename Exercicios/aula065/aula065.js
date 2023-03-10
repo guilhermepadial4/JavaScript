@@ -1,4 +1,5 @@
 
+const calc=document.querySelector("#calc")
 const display=document.querySelector(".display")
 const teclas_Num=[...document.querySelectorAll(".num")]
 const teclas_Op=[...document.querySelectorAll(".op")]
@@ -6,6 +7,8 @@ const tecla_Res=document.querySelector(".res")
 const tecla_Cpy=document.querySelector("#tcpy")
 const tecla_Limpar=document.querySelector("#tlimpar")
 const tecla_Igual=document.querySelector("#tigual")
+const tecla_Aba=document.querySelector("#calc_aba")
+const img_Calc=document.querySelector("#img_aba_calc")
 
 let sinal=false
 let decimal=false
@@ -63,4 +66,15 @@ tecla_Igual.addEventListener("click",()=>{
 
 tecla_Cpy.addEventListener("click",(evt)=>{
     navigator.clipboard.writeText(display.innerHTML)
+})
+
+
+tecla_Aba.addEventListener("click",(evt)=>{
+    calc.classList.toggle("calc_exibir")
+    console.log(evt.target)
+    if(calc.classList.contains("calc_exibir")){
+        img_Calc.setAttribute("src","seta_esquerda.svg")
+    }else{
+        img_Calc.setAttribute("src","seta_direita.svg")
+    }
 })
