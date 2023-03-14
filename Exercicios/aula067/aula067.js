@@ -1,5 +1,15 @@
 const div_data=document.querySelector("#div_data")
 const div_relogio=document.querySelector("#div_relogio")
+const btn_ativar=document.querySelector("#btn_ativar")
+const btn_parar=document.querySelector("#btn_parar")
+const tmp_alarme=document.querySelector("#tmp_alarme")
+const hora_alarme=document.querySelector("#hora_alarme")
+const timer=document.querySelector("#timer")
+
+let som_alarme=new Audio("alarme_bolado.mp3")
+som_alarme.loop=-1
+
+
 
 const data=new Date()
 
