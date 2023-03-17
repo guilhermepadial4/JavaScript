@@ -17,9 +17,7 @@ window.addEventListener("resize",(evt)=>{
 })
 
 btn_add.addEventListener("click",(evt)=>{
-    
 })
 
 btn_remover.addEventListener("click",(evt)=>{
-    
 })
