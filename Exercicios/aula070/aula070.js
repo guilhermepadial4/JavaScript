@@ -9,3 +9,17 @@ let largura_palco=palco.offsetWidth
 let altura_palco=palco.offsetHeight
 let bolas=[]
 let num_bola=0
+
+window.addEventListener("resize",(evt)=>{
+     largura_palco=palco.offsetWidth
+     altura_palco=palco.offsetHeight
+     console.log(largura_palco)
+})
+
+btn_add.addEventListener("click",(evt)=>{
+    
+})
+
+btn_remover.addEventListener("click",(evt)=>{
+    
+})
