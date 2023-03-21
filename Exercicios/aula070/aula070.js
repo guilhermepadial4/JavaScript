@@ -42,7 +42,7 @@ class Bola{
                return b
           }
      })
-     this.eu.remove
+     this.eu.remove()
      num_bola--
      num_objetos.innerHTML=num_bola
   }
@@ -51,7 +51,7 @@ class Bola{
      const div=document.createElement("div")
      div.setAttribute("id",this.id)
      div.setAttribute("class","bola")
-     div.setAttribute("style",`left:${this.px}px;top:${this.py}px;width:${this.tam}px;height:${this.tam}p;background-color:rgb${this.r},${this.g},${this.b}`)
+     div.setAttribute("style",`left:${this.px}px;top:${this.py}px;width:${this.tam}px;height:${this.tam}px;background-color:rgb(${this.r},${this.g},${this.b})`)
      this.palco.appendChild(div)
   }
 
@@ -60,7 +60,8 @@ class Bola{
           this.dirx=-1
      }else if(this.px<=0){
           this.dirx=0
-     }else if(this.py+this.tam>=altura_palco){
+     }
+     if(this.py+this.tam>=altura_palco){
           this.diry=-1
      }else if(this.py<=0){
           this.diry=1
@@ -71,7 +72,7 @@ class Bola{
      this.controle_bordas()
      this.px+=this.dirx*this.velx
      this.py+=this.diry*this.vely
-     this.eu.setAttribute("style",`left:${this.px}px;top:${this.py}px;width:${this.tam}px;height:${this.tam}p;background-color:rgb${this.r},${this.g},${this.b}`)
+     this.eu.setAttribute("style",`left:${this.px}px;top:${this.py}px;width:${this.tam}px;height:${this.tam}px;background-color:rgb(${this.r},${this.g},${this.b})`)
      if((this.px>largura_palco)||(this.py>altura_palco)){
           this.remover()
      }
