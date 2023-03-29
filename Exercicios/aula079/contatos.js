@@ -8,7 +8,18 @@ let contato={
         return contatos[i_cont]
     },
     addContato:function(novoContado,destinoDom){
-
+        const div=document.createElement("div")
+        div.setAttribute("class","contato")
+        const p_nome=document.createElement("p")
+        p_nome.innerHTML=novoContado.nome
+        const p_telefone=document.createElement("p")
+        p_nome.innerHTML=novoContado.telefone
+        const p_email=document.createElement("p")
+        p_nome.innerHTML=novoContado.email
+        div.appendChild(p_nome)
+        div.appendChild(p_telefone)
+        div.appendChild(p_email)
+        destinoDom.appendChild(div)
     }
 }
 
