@@ -1,4 +1,4 @@
-import { contatos } from "./bancoContatos.js"
+import {contatos} from "./bancoContatos.js"
 
 let contato={
     getTodosContatos:function(){
@@ -7,19 +7,25 @@ let contato={
     getContato:function(i_cont){
         return contatos[i_cont]
     },
-    addContato:function(novoContado,destinoDom){
+    addContato:function(novoContato,destinoDOM){
+        const cont={
+            nome:novoContato.nome,
+            telefone:novoContato.telefone,
+            email:novoContato.email
+        }
+        contatos.push(cont)
         const div=document.createElement("div")
         div.setAttribute("class","contato")
         const p_nome=document.createElement("p")
-        p_nome.innerHTML=novoContado.nome
+        p_nome.innerHTML=novoContato.nome
         const p_telefone=document.createElement("p")
-        p_nome.innerHTML=novoContado.telefone
-        const p_email=document.createElement("p")
-        p_nome.innerHTML=novoContado.email
+        p_telefone.innerHTML=novoContato.telefone
+        const p_mail=document.createElement("p")
+        p_mail.innerHTML=novoContato.email
         div.appendChild(p_nome)
         div.appendChild(p_telefone)
-        div.appendChild(p_email)
-        destinoDom.appendChild(div)
+        div.appendChild(p_mail)
+        destinoDOM.appendChild(div)
     }
 }
 
