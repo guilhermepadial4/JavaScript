@@ -1,5 +1,6 @@
 let nome=new String("Guilherme Padial")
 let nome2=new String("Guilherme Padial")
+let nome3=new String(nome.toUpperCase())
 let curso=new String("Javascript")
 
 console.log(nome)
@@ -30,3 +31,18 @@ console.log(sobrenome)
 
 let arr_nome=nome.split(" ")
 console.log(arr_nome)
+
+let parte1=nome.substring(0,9)
+console.log(parte1)
+
+let parte2=nome.substr(0,9)
+console.log(parte2)
+
+console.log(nome.toUpperCase())
+console.log(nome3.toLowerCase())
+
+console.log(nome.valueOf())
+
+let num=10
+num=num.toString()
+console.log(typeof(num))
