@@ -14,22 +14,22 @@ const mover=(dir)=>{
     let posi=parseInt(carro.style.left)
     posi+=(10*dir)
     carro.style.left=`${posi}px`
+    anima=setTimeout(mover,20,dir)
 }
 
 btn_parar.addEventListener("click",()=>{
-    clearInterval(anima)
+    clearTimeout(anima)
 })
 
 btn_esquerda.addEventListener("click",()=>{
     //carro.style.left=parseInt(carro.style.left) -10 +"px"
-    clearInterval(anima)
-    anima=setInterval(mover,20,-1)
-    
+    clearTimeout(anima)
+    mover(-1)
 })
 
 btn_direita.addEventListener("click",()=>{
-    clearInterval(anima)
-    anima=setInterval(mover,20,1)
+    clearTimeout(anima)
+    mover(1)
 })
 
 window.onload=initi()
