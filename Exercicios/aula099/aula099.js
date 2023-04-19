@@ -1,13 +1,18 @@
 const timer=document.getElementById("timer")
 
 const tmpini=Date.now()
-console.log(tmpini)
 
 const contador=()=>{
     const tmpatual=Date.now()
     let cont=tmpatual-tmpini
     let seg=Math.floor((tmpatual-tmpini)/1000)
-    console.log(seg)
+    timer.innerHTML=converter(seg)
 }
 
-//setInterval(contador,1000)
+const converter=(seg)=>{
+    const hora=Math.floor(seg/3600)
+
+    return  hora
+}
+
+setInterval(contador,1000)
