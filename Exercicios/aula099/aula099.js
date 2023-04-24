@@ -1,7 +1,9 @@
 const timer=document.getElementById("timer")
 const btn_iniciar=document.getElementById("btn_iniciar")
+const btn_parcial=document.getElementById("btn_parcial")
 const btn_parar=document.getElementById("btn_parar")
 const btn_zerar=document.getElementById("btn_zerar")
+const parciaisregistradas=document.querySelector("#parciaisregistradas")
 
 let intervalo=null
 let tmpini=null
@@ -28,6 +30,11 @@ btn_iniciar.addEventListener("click",(evt)=>{
     intervalo=setInterval(contador,1000)
 })
 
+btn_parcial.addEventListener("click",(evt)=>{
+    let parcial="<div>"+timer.innerHTML+"</div>"
+    parciaisregistradas.innerHTML+=parcial
+})
+
 btn_parar.addEventListener("click",(evt)=>{
     clearInterval(intervalo)
 })
@@ -36,4 +43,5 @@ btn_zerar.addEventListener("click",(evt)=>{
     tmpini=Date.now()
     timer.innerHTML="00:00:00"
     clearInterval(intervalo)
+    parciaisregistradas.innerHTML=""
 })
