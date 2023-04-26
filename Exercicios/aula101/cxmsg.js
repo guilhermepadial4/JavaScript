@@ -1,13 +1,15 @@
 class Cxmsg{
-    cor=null
-    destino=null
-    divmsg=null
-    constructor(config){
-        
+   static cor="#888"
+   static destino=null
+   static divmsg=null
+
+   static config=(config)=>{
         this.cor=config.cor
-        this.destino=document.body
+        
     }
-    mostrar=(titulo,texto)=>{
+
+    static mostrar=(titulo,texto)=>{
+        this.destino=document.body
         this.titulo=titulo
         this.texto=texto
         this.divmsg=document.createElement("div")
@@ -97,7 +99,9 @@ class Cxmsg{
         rodapeCxmsg.appendChild(btn_ok)
     }
 
-    ocultar=()=>{
+   static ocultar=()=>{
         this.divmsg.remove()
     }
 }
+
+export {Cxmsg}

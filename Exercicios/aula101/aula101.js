@@ -1,20 +1,22 @@
+import { Cxmsg } from "./cxmsg.js"
+
 const config={
-    cor:"#42a"
-}
-const cxmsg=new Cxmsg(config)
+    cor:"#48f"
+ }
+Cxmsg.config(config)
 
 const btn_mostrarcxmsg=document.getElementById("btn_mostrarcxmsg")
 const btn_mostrarcxmsg2=document.getElementById("btn_mostrarcxmsg2")
 const btn_mostrarcxmsg3=document.getElementById("btn_mostrarcxmsg3")
 
 btn_mostrarcxmsg.addEventListener("click",()=>{
-    cxmsg.mostrar("Aluno","Guilherme Padial")
+    Cxmsg.mostrar("Aluno","Guilherme Padial")
 })
 
 btn_mostrarcxmsg2.addEventListener("click",()=>{
-    cxmsg.mostrar("Curso","Javascript")
+    Cxmsg.mostrar("Curso","Javascript")
 })
 
 btn_mostrarcxmsg3.addEventListener("click",()=>{
-    cxmsg.mostrar("Matricula","25647822")
+    Cxmsg.mostrar("Matricula","25647822")
 })
