@@ -2,13 +2,15 @@ class Cxmsg{
    static cor="#888"
    static destino=null
    static divmsg=null
+   static tipo=null
+   static comando_sn=null
+   static textos=[]
 
-   static config=(config)=>{
+    static mostrar=(config,titulo,texto)=>{
         this.cor=config.cor
-        
-    }
-
-    static mostrar=(titulo,texto)=>{
+        this.tipo=config.tipo
+        this.textos=config.textos
+        this.comando_sn=()=>{config.comando_sn()}
         this.destino=document.body
         this.titulo=titulo
         this.texto=texto
@@ -90,13 +92,33 @@ class Cxmsg{
         "cursor:pointer;"+
         "text-transform:uppercase;"
 
-        const btn_ok=document.createElement("button")
-        btn_ok.setAttribute("style",estilo_botaoCxmsg)
-        btn_ok.innerHTML="OK"
-        btn_ok.addEventListener("click",(evt)=>{
-            this.ocultar()
-        })
-        rodapeCxmsg.appendChild(btn_ok)
+        if(this.tipo=="ok"){
+            const btn_ok=document.createElement("button")
+            btn_ok.setAttribute("style",estilo_botaoCxmsg)
+            btn_ok.innerHTML="OK"
+            btn_ok.addEventListener("click",(evt)=>{
+                this.ocultar()
+            })
+            rodapeCxmsg.appendChild(btn_ok)
+
+        }else if(this.tipo=="sn"){
+            const btn_sim=document.createElement("button")
+            btn_sim.setAttribute("style",estilo_botaoCxmsg)
+            btn_sim.innerHTML=this.textos[0]
+            btn_sim.addEventListener("click",(evt)=>{
+                this.comando_sn()
+                this.ocultar()
+            })
+            rodapeCxmsg.appendChild(btn_sim)
+
+            const btn_nao=document.createElement("button")
+            btn_nao.setAttribute("style",estilo_botaoCxmsg)
+            btn_nao.innerHTML=this.textos[1]
+            btn_nao.addEventListener("click",(evt)=>{
+                this.ocultar()
+            })
+            rodapeCxmsg.appendChild(btn_nao)
+        }
     }
 
    static ocultar=()=>{
