@@ -138,7 +138,7 @@ class Login{
 
         const LabelUsername = document.createElement("label");
         LabelUsername.setAttribute("id", "LabelUsername");
-        LabelUsername.innerHTML = "Usuário"
+        LabelUsername.innerHTML = "Username";
         campLoginUsername.appendChild(LabelUsername); 
 
         const inputUsername = document.createElement("input");
@@ -154,7 +154,7 @@ class Login{
 
         const LabelPassword = document.createElement("label");
         LabelPassword.setAttribute("id", "LabelUsername");
-        LabelPassword.innerHTML = "Senha"
+        LabelPassword.innerHTML = "Senha";
         campLoginPassword.appendChild(LabelPassword); 
 
         const inputPassword = document.createElement("input");
@@ -170,12 +170,12 @@ class Login{
 
         const btnLogin = document.createElement("button");
         btnLogin.setAttribute("id", "btn-login");
-        btnLogin.innerHTML = "Login"
+        btnLogin.innerHTML = "Login";
         ButtonsLogin.appendChild(btnLogin); 
 
         const btnCancel = document.createElement("button");
         btnCancel.setAttribute("id", "btn-cancel");
-        btnCancel.innerHTML = "Cancel"
+        btnCancel.innerHTML = "Cancel";
         ButtonsLogin.appendChild(btnCancel); 
 
         const soonLogin = document.createElement("div");
@@ -184,8 +184,8 @@ class Login{
         baseLogin.appendChild(soonLogin); 
 
         const imgLogin = document.createElement("img");
-        imgLogin.setAttribute("src", "./logo.png");
-        imgLogin.setAttribute("alt", "padialdev");
+        imgLogin.setAttribute("src", this.config.img);
+        imgLogin.setAttribute("title", "padialdev");
         soonLogin.appendChild(imgLogin); 
 
 
