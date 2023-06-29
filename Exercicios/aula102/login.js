@@ -1,4 +1,5 @@
 class Login{
+    
     static logado = false;
     static matlogado = null;
     static nomelogado = null;
@@ -8,15 +9,17 @@ class Login{
         cor: "#048",
         img: "./logo.png"
     };
+
+    
+
+
     static endpoint = "https://loginv1padialdev.guilhermepadial.repl.co/";
     //https://loginv1padialdev.guilhermepadial.repl.co/?matricula=123&senha=221
 
-    static login = (mat,pas,config=null) => {
+    static login = (config=null) => {
         if(config != null){
             this.config = config;
         }
-
-         this.endpoint += `?matricula=${mat}&senha=${pas}`;
 
          this.stylecss =
 
@@ -171,11 +174,21 @@ class Login{
         const btnLogin = document.createElement("button");
         btnLogin.setAttribute("id", "btn-login");
         btnLogin.innerHTML = "Login";
+        btnLogin.addEventListener("click",()=>{
+            if(this.checkLogin()){
+                this.closeLogin();
+            }else{
+
+            }
+        });
         ButtonsLogin.appendChild(btnLogin); 
 
         const btnCancel = document.createElement("button");
         btnCancel.setAttribute("id", "btn-cancel");
         btnCancel.innerHTML = "Cancel";
+        btnCancel.addEventListener("click",()=>{
+            this.closeLogin();
+        });
         ButtonsLogin.appendChild(btnCancel); 
 
         const soonLogin = document.createElement("div");
@@ -187,38 +200,6 @@ class Login{
         imgLogin.setAttribute("src", this.config.img);
         imgLogin.setAttribute("title", "padialdev");
         soonLogin.appendChild(imgLogin); 
-
-
-    //     <div id="back-login" class="back-login"> OK
-
-    //     <div id="base-login" class="base-login">OK
-
-    //             <div id="elements-login" class="elements-login">OK
-
-    //                 <div class="camp-login">OK
-    //                     <label>Username</label>OK
-    //                     <input type="text" name="f_username" id="f-username">ok
-    //                 </div>
-
-    //                 <div class="camp-login">ok
-    //                     <label>Senha</label>ok
-    //                     <input type="password" name="f_password" id="f-password">ok
-    //                 </div>
-
-    //                 <div class="buttons-login">OK
-    //                     <button id="btn-login">Login</button>OK
-    //                     <button id="btn-cancel">Cancelar</button>OK
-    //                 </div>
-
-    //             </div>
-
-    //             <div id="soon-login" class="soon-login">OK
-    //                 <img src="./logo.png" alt="Padialdev">OK
-    //             </div>
-
-    //      </div>
-    // </div> 
-    
 
         // fetch(this.endpoint)
         // .then(res=>res.json())
@@ -234,6 +215,25 @@ class Login{
         //     }
         // })
      }
- }
 
+     static checkLogin = () =>{
+        const mat = document.querySelector("#inputUsername").value;
+        const pas = document.querySelector("#inputPassword").value;
+        if(mat == "123" && pas == "321"){
+            return true;
+        }else {
+            return false;
+        }
+     }
+
+     static closeLogin = () => {
+        const back_login = document.querySelector("#back-login");
+        back_login.remove(); 
+
+        const id_styleLogin = document.querySelector("#id_styleLogin");
+        id_styleLogin.remove();
+
+     }
+ }
+ 
 export{Login};
