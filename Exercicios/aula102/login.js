@@ -3,8 +3,10 @@ class Login{
     static logado = false;
     static matlogado = null;
     static nomelogado = null;
-    static stylecss = null
     static acessologado = null;
+    static stylecss = null
+    static callback_ok = null;
+    static callback_notok = null;
     static config = {
         cor: "#048",
         img: "./logo.png"
@@ -16,10 +18,13 @@ class Login{
     static endpoint = "https://loginv1padialdev.guilhermepadial.repl.co/";
     
 
-    static login = (config=null) => {
+    static login = (callback_ok,callback_notok,config=null) => {
         if(config != null){
             this.config = config;
         }
+
+        this.callback_ok = () =>{callback_ok()}
+        this.callback_notok = () =>{callback_notok()}
 
          this.stylecss =
 
@@ -214,13 +219,14 @@ class Login{
                 this.matlogado = mat;
                 this.nomelogado = res.nome;
                 this.acessologado = res.acesso;
+                this.callback_ok();
                 this.closeLogin();
             }else{
                 this.logado = false;
                 this.matlogado = null;
                 this.nomelogado = null;
                 this.acessologado = null;
-                alert("Login não efetuado! Username ou Senha incorretos.");
+                this.callback_notok();
             }
         })
 
