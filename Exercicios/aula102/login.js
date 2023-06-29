@@ -14,7 +14,7 @@ class Login{
 
 
     static endpoint = "https://loginv1padialdev.guilhermepadial.repl.co/";
-    //https://loginv1padialdev.guilhermepadial.repl.co/?matricula=123&senha=221
+    
 
     static login = (config=null) => {
         if(config != null){
@@ -175,11 +175,7 @@ class Login{
         btnLogin.setAttribute("id", "btn-login");
         btnLogin.innerHTML = "Login";
         btnLogin.addEventListener("click",()=>{
-            if(this.checkLogin()){
-                this.closeLogin();
-            }else{
-
-            }
+            this.checkLogin();
         });
         ButtonsLogin.appendChild(btnLogin); 
 
@@ -201,29 +197,39 @@ class Login{
         imgLogin.setAttribute("title", "padialdev");
         soonLogin.appendChild(imgLogin); 
 
-        // fetch(this.endpoint)
-        // .then(res=>res.json())
-        // .then(res=>{
-        //     if(res){
-        //         this.logado = true;
-        //         this.matlogado = mat;
-        //         this.nomelogado = res.nome;
-        //         this.acessologado = res.acesso;
-        //         console.log(res);
-        //     }else{
-        //         console.log("Usuário não logado.");
-        //     }
-        // })
+        
      }
 
      static checkLogin = () =>{
         const mat = document.querySelector("#inputUsername").value;
         const pas = document.querySelector("#inputPassword").value;
-        if(mat == "123" && pas == "321"){
-            return true;
-        }else {
-            return false;
-        }
+
+        const endpoint = `https://loginv1padialdev.guilhermepadial.repl.co/?matricula=${mat}&senha=${pas}`
+        
+        fetch(endpoint)
+        .then(res=>res.json())
+        .then(res=>{
+            if(res){
+                this.logado = true;
+                this.matlogado = mat;
+                this.nomelogado = res.nome;
+                this.acessologado = res.acesso;
+                this.closeLogin();
+            }else{
+                this.logado = false;
+                this.matlogado = null;
+                this.nomelogado = null;
+                this.acessologado = null;
+                alert("Login não efetuado! Username ou Senha incorretos.");
+            }
+        })
+
+
+        // if(mat == "123" && pas == "321"){
+        //     return true;
+        // }else {
+        //     return false;
+        // }
      }
 
      static closeLogin = () => {
